@@ -38,6 +38,8 @@
 #define SPI_REG_TX2     0x18    /*!< Transfer Register 2 Address */
 #define SPI_REG_TX3     0x1C    /*!< Transfer Register 3 Address */
 
+#define SPI_NUMBER  2       /*!< 2 spi interfaces  */
+
 #define SPI_NO_ERR      0   /*!< No error  */
 
 #define SPI_ERR_NODEV   -1  /*!< Wrong device id  */
@@ -118,10 +120,21 @@ struct nuc970_spi_cs
 /*
  * Functions
  */
+#if 0
 VOID    SPI_Init        (SPI_TypeDef* SPIx);
 INT32   SPI_Control     (SPI_TypeDef* SPIx,UINT32 cmd, UINT32 arg);
 INT32   SPI_GetBusy     (SPI_TypeDef* SPIx);
 UINT32  SPI_Read        (SPI_TypeDef* SPIx,UINT8 buff_id);
 VOID    SPI_Write       (SPI_TypeDef* SPIx,UINT8 buff_id,UINT32 dat);
+#endif
+
+int32_t  spiInit(int32_t fd);
+int32_t spiIoctl(int32_t fd, uint32_t cmd, uint32_t arg0, uint32_t arg1);
+int spiOpen(int32_t fd);
+uint8_t spiGetBusyStatus(int32_t fd);
+uint32_t spiRead(int32_t fd, uint8_t buff_id);
+void spiWrite(int32_t fd, uint8_t buff_id, uint32_t data);
+
+int rt_hw_spi_init(void);
 
 #endif /* PLATFORM_NUC970_SPI_H_ */

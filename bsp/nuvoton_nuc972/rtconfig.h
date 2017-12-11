@@ -60,14 +60,14 @@
 #define FINSH_USING_DESCRIPTION
 #define FINSH_THREAD_STACK_SIZE 4096
 /* FINSH_USING_AUTH is not set */
+#if 0
 #define FINSH_DEFAULT_PASSWORD "rtthread"
 #define FINSH_USING_MSH
 #define FINSH_USING_MSH_DEFAULT
 #define FINSH_USING_MSH_ONLY
-
+#endif
 /* Device virtual file system */
-
-//#define RT_USING_DFS
+#define RT_USING_DFS
 #define DFS_USING_WORKDIR
 #define DFS_FILESYSTEMS_MAX 4
 #define DFS_FD_MAX 4
@@ -85,6 +85,7 @@
 /* RT_DFS_ELM_USE_ERASE is not set */
 #define RT_DFS_ELM_REENTRANT
 #define RT_USING_DFS_DEVFS
+
 /* RT_USING_DFS_NET is not set */
 /* RT_USING_DFS_NFS is not set */
 
@@ -147,6 +148,7 @@
 
 #define RT_USING_DEVICE_IPC
 #define RT_USING_SERIAL
+#define RT_SERIAL_RB_BUFSZ  2048
 /* RT_USING_CAN is not set */
 /* RT_USING_HWTIMER is not set */
 #define RT_USING_I2C
@@ -188,6 +190,7 @@
 #define RTGUI_IMAGE_PNG_NONE
 /* RTGUI_IMAGE_PNG is not set */
 /* RTGUI_IMAGE_LODEPNG is not set */
+#define RTGUI_IMAGE_LODEPNG
 /* RTGUI_IMAGE_BMP is not set */
 /* RTGUI_IMAGE_CONTAINER is not set */
 
@@ -236,5 +239,13 @@
 /* miscellaneous packages */
 
 /* PKG_USING_HELLO is not set */
+
+#define RT_USING_SPISPI
+#define RT_USING_SPI1
+#define RT_USING_W25QXX
+#define FLASH_DEBUG
+
+
+#define RT_USING_RYM
 
 #endif

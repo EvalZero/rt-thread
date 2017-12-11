@@ -18,7 +18,7 @@ if  CROSS_TOOL == 'gcc':
 	    EXEC_PATH = os.getenv('RTT_EXEC_PATH')
 elif CROSS_TOOL == 'keil':
 	PLATFORM 	= 'armcc'
-	EXEC_PATH 	= r'd:/Keil'
+	EXEC_PATH 	= r'C:\Developer\Software\Keil_v4\ARM\ARMCC\bin'
 else:
     print ('================ERROR============================')
     print ('unknown platform!')
